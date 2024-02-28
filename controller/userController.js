@@ -32,12 +32,13 @@ const createToken = (id) => {
 const signUpUser = async (req, res) => {
   const { name, email, password } = req.body;
   try {
-    const existingEmail = await User.findOne({ email: email });
+   
     if (!email) {
       res
         .status(400)
         .send({ message: 'Requested Data is not Provided', success: false });
     } else {
+      const existingEmail = await User.findOne({ email: email });
       if (!existingEmail) {
         // res.cookie(email, true, { maxAge: 6000, httpOnly: true });
         const salt = await bcrypt.genSalt(10);

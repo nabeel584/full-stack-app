@@ -4,13 +4,15 @@ const dbConnection = require('./dbConnection/dbConnection');
 const productRoute = require('./routes/productsRoutes');
 const userRoute = require('./routes/userRoutes');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const app = express();
 
 // app.use(express.static('public'));
 // app.use(express.urlencoded({ extended: true }));
 
-//setting up the database
+//setting up the cors
+app.use(cors());
 
 //Setting up view engine
 
